@@ -25,12 +25,17 @@ body {
 }
 
 .single_video_container {
-  width: 40%;
+  width: 25%;
   margin: auto;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+}
+
+.single_video_container video {
+    width: 100%;
+    height: 50%;
 }
 
 h1, h2 {
@@ -74,11 +79,11 @@ section {
 }
 
 .model-image {
-  max-width: 40%;
+  max-width: 20%;
   height: auto;
   display: block;
   margin: 0 auto;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .abstract-text {
@@ -101,7 +106,7 @@ section {
 }
 
 .video-column {
-  width: 22%;
+  width: 15%;
   margin-bottom: 10px;
 }
 
@@ -138,132 +143,70 @@ footer {
 
   <p>Anonymous</p>
       <p style="line-height:0.6">
-        <sup>1</sup>Anonymous
+        <!-- <sup>1</sup>Anonymous -->
       </p>
 
   <section>
     <div class="section-header"><h2>Abstract</h2></div>
-    <img src="figures/model.png" alt="Model Architecture" class="model-image">
-    <p class="abstract-text">Recent advancements in audio generation have been spurred by the evolution of large-scale deep learning models and expansive datasets.
-        However, the task of video-to-audio (V2A) generation continues to be a challenge, principally because of the intricate relationship
-        between the high-dimensional visual and auditory data, and the challenges associated with temporal synchronization. In this study,
-        we introduce FoleyGen, an open-domain V2A generation system built on a language modeling paradigm. FoleyGen leverages an
-        off-the-shelf neural audio codec for bidirectional conversion between waveforms and discrete tokens. The generation of audio tokens
-        is facilitated by a single Transformer model, which is conditioned on visual features extracted from a visual encoder. A prevalent
-        problem in V2A generation is the misalignment of generated audio with the visible actions in the video. To address this, we explore
-        three novel visual attention mechanisms. We further undertake an exhaustive evaluation of multiple visual encoders, each pretrained
-        on either single-modal or multi-modal tasks. The experimental results on VGGSound dataset show that our proposed FoleyGen outperforms
-        previous systems across all objective metrics and human evaluations.</p>
-        <p class="abstract-text">Check out our paper on <a href="https://arxiv.org/abs/2309.10537">FoleyGen: Visually-Guided Audio Generation</a> for more information.</p>
+    <img src="figures/system_overview.png" alt="Model Architecture" class="model-image">
+    <p class="abstract-text">Recent advancements in audio generation tasks, such as text-to-audio and text-to-music generation, have been spurred by the evolution of deep learning models and large-scale datasets. However, the task of video-to-audio (V2A) generation continues to be a challenge, principally because of the intricate relationship between the high-dimensional visual and auditory data, and the challenges associated with temporal synchronization. In this study, we introduce \textbf{FoleyGen}, an open-domain V2A generation system built on a language modeling paradigm. FoleyGen leverages an off-the-shelf neural audio codec for bidirectional conversion between waveforms and discrete tokens. The generation of audio tokens is facilitated by a single Transformer model, which is conditioned on visual features extracted from a visual encoder. FoleyGen features two distinct versions, differentiated by how the visual features extracted by the visual encoder interact with the Transformer model. FoleyGen-C employs a cross-attention module that enables audio tokens to attend to visual features. In contrast, FoleyGen-P appends visual features directly to the audio tokens, allowing interactions within the self-attention mechanism of the Transformer. A significant challenge in V2A generation is the misalignment of generated audio with corresponding visual actions. To address this, we develop three visual attention mechanisms to assess their impact on audio-visual synchronization. Additionally, we further undertake an exhaustive evaluation of multiple visual encoders, each pretrained on either single-modal or multi-modal tasks. The experimental results on VGGSound dataset show that our proposed FoleyGen models outperforms previous systems across all objective metrics and human evaluations.</p>
   </section>
 
   <section>
-    <div class="section-header"><h2>Audio Samples</h2></div>
-    <h2>Audio Generated Based on <a href="https://emu-video.metademolab.com/#/demo">EMU</a> Video</h2>
-    <div class="single_video_container">
-          <video controls>
-            <source src="videos/foleygen/emu2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/emu3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/emu4.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/emu5.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/emu1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-    </div>
-  </section>
+    <div class="section-header"><h2>Audio Samples Generated by FoleyGen-C with IB ranker</h2></div>
 
     <h2>Audio Generated Based on <a href="https://openai.com/research/video-generation-models-as-world-simulators">SORA</a> Video</h2>
     <div class="single_video_container">
           <video controls>
-            <source src="videos/foleygen/sora_2.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/SORA/sora_1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/foleygen/sora_5.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/SORA/sora_2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/foleygen/sora_6.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>          
-          <video controls>
-            <source src="videos/foleygen/sora_1.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/SORA/sora_3.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/foleygen/sora_8.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/SORA/sora_5.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/foleygen/sora_3.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/SORA/sora_6.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/foleygen/sora_4.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/SORA/sora_7.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-
           <video controls>
-            <source src="videos/foleygen/sora_7.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/SORA/sora_8.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-
     </div>
-<h2>Audio Generated Based on <a href="https://www.robots.ox.ac.uk/~vgg/data/vggsound/">VGGSound</a> Video</h2>
+
+    <h2>Audio Generated Based on <a href="https://emu-video.metademolab.com/#/demo">EMU</a> Video</h2>
     <div class="single_video_container">
-        <video controls>
-            <source src="videos/foleygen/public_1.mp4" type="video/mp4">
+          <video controls>
+            <source src="videos/FoleyGen-C-IBranker/EMU/emu3.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/foleygen/public_2.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/EMU/emu2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/foleygen/public_3.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/EMU/emu4.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/foleygen/public_6.mp4" type="video/mp4">
+            <source src="videos/FoleyGen-C-IBranker/EMU/emu5.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <video controls>
-            <source src="videos/foleygen/public_7.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/public_8.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/public_9.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/public_10.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/public_4.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/foleygen/public_5.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>          
     </div>
+  </section>
 
   <section>
     <div class="section-header"><h2>Audio Samples</h2></div>
@@ -271,27 +214,39 @@ footer {
       <div class="video-column">
         <h4><a href="https://arxiv.org/abs/2110.08791">SpecVQGAN</a></h4>
         <video controls>
-            <source src="videos/SpecVQGAN/_fTONy_pqik_30000_40000.mp4" type="video/mp4">
+            <source src="videos/SpecVQGAN/0VW4nelMODc_271000_281000.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/SpecVQGAN/-rcoSOKo-qM_566000_576000.mp4" type="video/mp4">
+            <source src="videos/SpecVQGAN/2PHV2xNjGVU_126000_136000.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/SpecVQGAN/DyhLzsWaXcE_27000_37000.mp4" type="video/mp4">
+            <source src="videos/SpecVQGAN/5Sf62hLcusw_187000_197000.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/SpecVQGAN/E3pv2mAbQ7M_100000_110000.mp4" type="video/mp4">
+            <source src="videos/SpecVQGAN/6Yk15FbL2yw_81000_91000.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/SpecVQGAN/hjRCaD9JmJY_511000_521000.mp4" type="video/mp4">
+            <source src="videos/SpecVQGAN/7AhpZQt1Ml0_120000_130000.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <video controls>
-            <source src="videos/SpecVQGAN/IMIuEADfRTQ_140000_150000.mp4" type="video/mp4">
+            <source src="videos/SpecVQGAN/dMW3YcQPPhk_412000_422000.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video controls>
+            <source src="videos/SpecVQGAN/JcLpx0VveSw_17000_27000.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video controls>
+            <source src="videos/SpecVQGAN/mKEJRZtNx9o_44000_54000.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video controls>
+            <source src="videos/SpecVQGAN/QS31Gm9tIig_0_10000.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
       </div>
@@ -299,27 +254,39 @@ footer {
       <div class="video-column">
         <h4><a href="https://arxiv.org/abs/2211.03089">IM2WAV</a></h4>
         <video controls>
-          <source src="videos/IM2WAV/_fTONy_pqik_30000_40000.mp4" type="video/mp4">
+          <source src="videos/IM2WAV/0VW4nelMODc_271000_281000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/IM2WAV/-rcoSOKo-qM_566000_576000.mp4" type="video/mp4">
+          <source src="videos/IM2WAV/2PHV2xNjGVU_126000_136000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/IM2WAV/DyhLzsWaXcE_27000_37000.mp4" type="video/mp4">
+          <source src="videos/IM2WAV/5Sf62hLcusw_187000_197000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/IM2WAV/E3pv2mAbQ7M_100000_110000.mp4" type="video/mp4">
+          <source src="videos/IM2WAV/6Yk15FbL2yw_81000_91000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/IM2WAV/hjRCaD9JmJY_511000_521000.mp4" type="video/mp4">
+          <source src="videos/IM2WAV/7AhpZQt1Ml0_120000_130000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/IM2WAV/IMIuEADfRTQ_140000_150000.mp4" type="video/mp4">
+          <source src="videos/IM2WAV/dMW3YcQPPhk_412000_422000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/IM2WAV/JcLpx0VveSw_17000_27000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/IM2WAV/mKEJRZtNx9o_44000_54000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/IM2WAV/QS31Gm9tIig_0_10000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -327,55 +294,119 @@ footer {
       <div class="video-column">
         <h4><a href="https://arxiv.org/abs/2306.17203v1">Diff-Foley</a></h4>
         <video controls>
-            <source src="videos/diff-foley/_fTONy_pqik_30000_40000.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/diff-foley/-rcoSOKo-qM_566000_576000.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/diff-foley/DyhLzsWaXcE_27000_37000.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/diff-foley/E3pv2mAbQ7M_100000_110000.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/diff-foley/hjRCaD9JmJY_511000_521000.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video controls>
-            <source src="videos/diff-foley/IMIuEADfRTQ_140000_150000.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <source src="videos/Diff-Foley/0VW4nelMODc_271000_281000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/Diff-Foley/2PHV2xNjGVU_126000_136000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/Diff-Foley/5Sf62hLcusw_187000_197000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/Diff-Foley/6Yk15FbL2yw_81000_91000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/IM2WAV/7AhpZQt1Ml0_120000_130000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/Diff-Foley/dMW3YcQPPhk_412000_422000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/Diff-Foley/JcLpx0VveSw_17000_27000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/Diff-Foley/mKEJRZtNx9o_44000_54000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/Diff-Foley/QS31Gm9tIig_0_10000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <div class="video-column">
-        <h4><a href="https://arxiv.org/abs/2309.10537">FoleyGen(Ours)</a></h4>
+        <h4>FoleyGen-C</h4>
         <video controls>
-          <source src="videos/foleygen/_fTONy_pqik_30000_40000.mp4" type="video/mp4">
+          <source src="videos/FoleyGen-C/0VW4nelMODc_271000_281000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/foleygen/-rcoSOKo-qM_566000_576000.mp4" type="video/mp4">
+          <source src="videos/FoleyGen-C/2PHV2xNjGVU_126000_136000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/foleygen/DyhLzsWaXcE_27000_37000.mp4" type="video/mp4">
+          <source src="videos/FoleyGen-C/5Sf62hLcusw_187000_197000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/foleygen/E3pv2mAbQ7M_100000_110000.mp4" type="video/mp4">
+          <source src="videos/FoleyGen-C/6Yk15FbL2yw_81000_91000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/foleygen/hjRCaD9JmJY_511000_521000.mp4" type="video/mp4">
+          <source src="videos/FoleyGen-C/7AhpZQt1Ml0_120000_130000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video controls>
-          <source src="videos/foleygen/IMIuEADfRTQ_140000_150000.mp4" type="video/mp4">
+          <source src="videos/FoleyGen-C/dMW3YcQPPhk_412000_422000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C/JcLpx0VveSw_17000_27000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C/mKEJRZtNx9o_44000_54000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C/QS31Gm9tIig_0_10000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-column">
+        <h4>FoleyGen-C with IB ranker</h4>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/0VW4nelMODc_271000_281000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/2PHV2xNjGVU_126000_136000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/5Sf62hLcusw_187000_197000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/6Yk15FbL2yw_81000_91000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/7AhpZQt1Ml0_120000_130000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/dMW3YcQPPhk_412000_422000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/JcLpx0VveSw_17000_27000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/mKEJRZtNx9o_44000_54000.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video controls>
+          <source src="videos/FoleyGen-C-IBranker/VGG_Sound/QS31Gm9tIig_0_10000.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -385,7 +416,7 @@ footer {
 </div>
 
 <footer>
-  <p>&copy; Anonymous. All rights reserved.</p>
+  <p>&copy; Anonymous.</p>
 </footer>
 
 </body>
